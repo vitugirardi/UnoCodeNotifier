@@ -1,0 +1,15 @@
+{
+  "name": "unocodenotifier",
+  "version": "1.0.0",
+  "description": "Scrap code, send SMS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "teste"
+  },
+  "author": "Victor Girardi [victor@girardi.me]",
+  "license": "ISC"
+}

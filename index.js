@@ -1,0 +1,1 @@
+const URL = "https://ucngame.com/codes/uno-mobile-gift-code/"
