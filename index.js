@@ -16,6 +16,7 @@ var lastListOfCodes = [];
 
 async function Main() {
   lastListOfCodes = await FetchForList();
+  console.log(`Starting... got ${lastListOfCodes.length} CODES!`)
 
   setInterval(async () => {
     console.log("Fetching for CODES!")
