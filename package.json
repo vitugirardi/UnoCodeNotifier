@@ -2,14 +2,21 @@
   "name": "unocodenotifier",
   "version": "1.0.0",
   "description": "Scrap code, send SMS",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "teste"
+    "url": "https://github.com/girardime/UnoCodeNotifier"
   },
   "author": "Victor Girardi [victor@girardi.me]",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.0.3",
+    "node-fetch": "^3.3.1",
+    "twilio": "^4.8.0"
+  }
 }
