@@ -16,20 +16,22 @@ var lastListOfCodes = [];
 
 async function Main() {
   lastListOfCodes = await FetchForList();
-  console.log(`Starting... got ${lastListOfCodes.length} CODES!`)
+  console.log(`Starting... got ${lastListOfCodes.length} CODES!`);
 
   setInterval(async () => {
-    console.log("Fetching for CODES!")
-    const newList = await FetchForList;
+    console.log("Fetching for CODES!");
+    const newList = await FetchForList();
 
-    if (newList == lastListOfCodes) return console.log("No new CODES!");
-    console.log("New CODES!")
+    if (arrayEquals(newList, lastListOfCodes)) {
+      return console.log("NO New CODES!");
+    }
+    console.log("New CODES!");
 
     const diference = newList.filter((x) => !lastListOfCodes.includes(x));
     lastListOfCodes = newList;
 
     sendSmsToNumbers(PHONE_NUMBERS, diference);
-  }, 300000);
+  }, 60000);
 }
 
 async function FetchForList() {
@@ -62,6 +64,15 @@ function sendSms(number, codes = []) {
       to: number,
     })
     .then((message) => console.log(message.sid));
+}
+
+function arrayEquals(a, b) {
+  return (
+    Array.isArray(a) &&
+    Array.isArray(b) &&
+    a.length === b.length &&
+    a.every((val, index) => val === b[index])
+  );
 }
 
 Main();
