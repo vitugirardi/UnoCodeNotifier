@@ -16,16 +16,13 @@ var lastListOfCodes = [];
 
 async function Main() {
   lastListOfCodes = await FetchForList();
-  console.log(`Starting... got ${lastListOfCodes.length} CODES!`);
+  console.log(`STARTED! GOT [ ${lastListOfCodes.length} ] CODES!`);
 
   setInterval(async () => {
-    console.log("Fetching for CODES!");
     const newList = await FetchForList();
 
-    if (arrayEquals(newList, lastListOfCodes)) {
-      return console.log("NO New CODES!");
-    }
-    console.log("New CODES!");
+    if (arrayEquals(newList, lastListOfCodes)) return;
+    console.log("GOT NEW CODE(s)!");
 
     const diference = newList.filter((x) => !lastListOfCodes.includes(x));
     lastListOfCodes = newList;
@@ -54,7 +51,7 @@ function sendSmsToNumbers(numbers = [], codes) {
 }
 
 function sendSms(number, codes = []) {
-  const MSG = `New Uno CODES! ${codes}`;
+  const MSG = `New Uno Code(s): ${codes}`;
   console.log(MSG);
 
   client.messages
